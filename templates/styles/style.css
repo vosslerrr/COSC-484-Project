@@ -4,6 +4,7 @@
     justify-content:space-between;   
     gap:24px;
     padding:10px 24px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .left, .right{
@@ -17,6 +18,7 @@
     display: flex;
     justify-content: center;
     min-width:0;    
+    
 }
 
 #searchBar{
@@ -26,11 +28,62 @@
     border:3px solid rgb(0,30,128);
     border-radius:4px;
     outline:none;
+    
 }
 
 #search-input{
     width : 100%;
     height: 100%;
     flex-grow: 1;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
    
+}
+#navLogo{
+    width: 200px;
+    height: 75px;
+    display: flex;
+    align-items: center;     
+    justify-content: center;  
+    overflow: hidden;         
+}
+#navLogo img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+#dropbtn{
+    background-color: black;
+    color: white;
+    padding: 16px;
+    
+    font-size: 20px;
+    border: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#menu{
+    position: relative;
+    display: inline-block;
+}
+#dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: black;
+    z-index: 1;
+}
+#dropdown-content a{
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+#dropdown-content a:hover{
+    background-color: black;
+}
+#menu:hover #dropdown-content{
+    display: block;
+}
+#menu:hover #dropbtn{
+    background-color: black;
+
 }
