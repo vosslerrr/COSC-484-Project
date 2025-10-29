@@ -1,0 +1,29 @@
+.navBar{
+    display:flex;
+    align-items:center;              
+    justify-content:space-between;   
+    gap:24px;
+    padding:10px 24px;
+}
+
+.left, .right{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.middle{
+    flex:1;          
+    display: flex;
+    justify-content: center;
+    min-width:0;    
+}
+
+#searchBar{
+    width : 98%;
+    max-width: 800px;
+    padding:10px 12px;
+    border:3px solid rgb(0,30,128);
+    border-radius:4px;
+    outline:none;
+}
