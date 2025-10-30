@@ -1,11 +1,27 @@
-const express = require('express')
-const app = express();
-const PORT = 3000;
+const { MongoClient, ServerApiVersion } = require('mongodb');
 
-app.get("/", (req, res) => {
-  res.send("Hello from Express!");
-});
+async function main(){
+  
+  var pass = process.argv[2];
+  const uri = "mongodb+srv://vossler_db_user:" + pass + "@cluster0.rs5gw1x.mongodb.net/?appName=Cluster0";
 
-app.listen(PORT, () => {
-  console.log(`Express server running at http://localhost:${PORT}/`);
-});
+  const client = new MongoClient(uri);
+
+  try {
+      await client.connect();
+      await listDatabases(client);
+  } catch (e) {
+    console.error(e);
+  } finally {
+    await client.close();
+  }
+}
+
+main().catch(console.error);
+
+async function listDatabases(client) {
+  databaseList = await client.db().admin().listDatabases();
+
+  console.log("Databases:");
+  databaseList.databases.forEach(db => console.log(` - ${db.name}`));
+}
