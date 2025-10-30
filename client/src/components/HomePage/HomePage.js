@@ -19,7 +19,7 @@ function HomePage() {
     <div className="navBar">
         <div className="left">
             <div id="navLogo">
-            <img src="/Watchr_LOGO.png" alt="Watchr Logo" />
+            <a href="/"><img src="/Watchr_LOGO.png" alt="Watchr Logo" /></a> 
             </div>
 
             <div id="menu">

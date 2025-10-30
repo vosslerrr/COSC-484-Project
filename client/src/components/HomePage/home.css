@@ -58,12 +58,13 @@
    
 }
 #navLogo{
-    width: 200px;
-    height: 75px;
+    width: 160px;
+    height: 505px;
     display: flex;
     align-items: center;     
     justify-content: center;  
-    overflow: hidden;         
+    overflow: hidden;
+    padding-bottom: 15px;         
 }
 #navLogo img{
     max-width: 100%;
