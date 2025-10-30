@@ -1,21 +1,32 @@
 import React, { useEffect, useState } from "react";
-import { getPopularMovies } from "../../utils/api";
+import { getMoviePoster, getPopularMovies } from "../../utils/api";
 
 function HomePage() {
   const [movies, setMovies] = useState([]);
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     getPopularMovies()
-      .then(data => setMovies(data.results))
-      .catch(err => console.error(err));
+      .then(data => setMovies(data.results));
   }, []);
+
+  useEffect(() => {
+    Promise.all(
+      movies.map(movie => getMoviePoster(movie.id))
+    )
+      .then(allImages => setImages(allImages));
+  }, [movies]);
 
   return (
     <div>
       <h1>Popular Movies</h1>
       <ul>
-        {movies.map(m => (
-          <li key={m.id}>{m.title}</li>
+        {movies.map((m, index) => (
+          <li key={m.id}>
+            {images[index]?.posters?.[0] && (
+              <img src={`https://image.tmdb.org/t/p/w500${images[index].posters[0].file_path}`}/>
+            )}
+          </li>
         ))}
       </ul>
     </div>
