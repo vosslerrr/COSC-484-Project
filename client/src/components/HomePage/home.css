@@ -103,9 +103,9 @@
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    
 }
 #dropdown-content a:hover{
-    
     background-color: black;
 }
 #menu:hover #dropdown-content{
@@ -115,7 +115,7 @@
 }
 #menu:hover #dropbtn{
     border-radius: 20px 20px 0 0;
-    background-color: #FFD700;
+    background-color: #ffd900da;
 
 }
 #menu:hover #dropdown-content #watchlistOption{
@@ -149,3 +149,74 @@ body,html{
 #logBtn > span, #logBtn > img{
     vertical-align: middle;
 }
+#profBtn{
+    width: 50px;
+    height: 50px;
+    background-color: #1E1E1E;
+    border-radius: 50%;
+    border:3px solid #FFD700;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+#profBtn > img{
+    vertical-align: middle;
+}
+#profBtn:hover{
+    background-color: #2B2B2B;
+    border-color: #ffd900da;
+}
+#profBtn img{
+    width: 120%;
+    height: 120%;
+    object-fit: contain;
+    background: transparent;
+}
+#profile{
+    position: relative;
+}
+#profile-menu{
+    position: absolute;
+    top: 120%;
+    left: 110%;
+    
+    transform: translateY(-50%);
+    background: #1E1E1E;
+    border: 1px black;
+    border-radius: 12px;
+    min-width: 180px;
+    
+    z-index: 999;
+    box-shadow: 0 8px 25px black;
+}
+#profile-menu a{
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 14px;
+    font-size: 14px;
+    display: block;
+}
+#profile-menu a:hover{
+  background: #2b2b2b;
+}
+#profile-header{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 1px solid #333;
+}
+
+#avatar-small{
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #ffd700;
+}
+
+#profile-name{
+  color: white;
+  font-weight: 600;
+}
+
