@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { getMoviePoster, getPopularMovies } from "../../utils/api";
+import { getMovieDetails, getPopularMovies } from "../../utils/api";
 
 function HomePage() {
   const [movies, setMovies] = useState([]);
-  const [images, setImages] = useState([]);
+  const [details, setDetails] = useState([]);
 
   useEffect(() => {
     getPopularMovies()
@@ -12,9 +12,9 @@ function HomePage() {
 
   useEffect(() => {
     Promise.all(
-      movies.map(movie => getMoviePoster(movie.id))
+      movies.map(movie => getMovieDetails(movie.id))
     )
-      .then(allImages => setImages(allImages));
+      .then(allDetails => setDetails(allDetails));
   }, [movies]);
 
   return (
@@ -23,8 +23,8 @@ function HomePage() {
       <ul>
         {movies.map((m, index) => (
           <li key={m.id}>
-            {images[index]?.posters?.[0] && (
-              <img src={`https://image.tmdb.org/t/p/w500${images[index].posters[0].file_path}`}/>
+            {details[index]?.poster_path?.[0] && (
+              <img src={`https://image.tmdb.org/t/p/w500${details[index].poster_path}`}/>
             )}
           </li>
         ))}

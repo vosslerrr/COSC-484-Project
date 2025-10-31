@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get("/popular", async (req, res) => {
   const response = await fetch(
-    "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+    "https://api.themoviedb.org/3/movie/popular",
     {
       headers: {
         accept: "application/json",
@@ -20,11 +20,25 @@ router.get("/popular", async (req, res) => {
   res.json(data);
 });
 
-router.get("/:movie_id/images", async (req, res) => {
-  const { movie_id } = req.params;
-  const { language = "en-US" } = req.query;
+router.get("/upcoming", async (req, res) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/${movie_id}/images?language=${language}`,
+    "https://api.themoviedb.org/3/movie/upcoming",
+    {
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${process.env.TMDB_API_TOKEN}`
+      }
+    }
+  );
+
+  const data = await response.json();
+  res.json(data);
+})
+
+router.get("/:movie_id/details", async (req, res) => {
+  const { movie_id } = req.params;
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/${movie_id}?language=en-US`,
     {
       headers: {
         accept: "application/json",

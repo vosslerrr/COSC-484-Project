@@ -4,7 +4,7 @@ import tmdbRoutes from "./routes/tmdb.js";
 
 const app = express();
 app.use(cors());
-app.use("/api/movies", tmdbRoutes);
+app.use("/routes/tmdb", tmdbRoutes);
 
 app.listen(process.env.PORT, () =>
   console.log("Backend running on port 5000")
